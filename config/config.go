@@ -3,7 +3,7 @@ package config
 import (
 	"fmt"
 
-	"rock_example/render"
+	render "github.com/go-rock/rock-pongo2"
 
 	"github.com/fsnotify/fsnotify"
 	"github.com/go-rock/rock"
@@ -50,7 +50,7 @@ func Installed() bool {
 	return Config.GetBool("installed")
 }
 
-func SetConfig(key string, value interface{}) {
-	Config.Set(key, true)
-	Config.WriteConfig()
+func SetConfig(key string, value interface{}) error {
+	Config.Set(key, value)
+	return Config.WriteConfig()
 }

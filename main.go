@@ -102,7 +102,7 @@ type Error struct {
 // admin
 func AdminLogin(c rock.Context) {
 	log.Println("admin auth action")
-	log.Println(c.GetView())
+	log.Println(c.GetView().Engine.Ext())
 
 	error := &Error{Name: "render error", Msg: "Error msg"}
 	// error := rock.M{"Msg": "xiao"}
